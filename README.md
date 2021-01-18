@@ -3,6 +3,7 @@
 Author : 
 <p>
   <a href="https://twitter.com/@Zed_Developer" target="_blank">
+  <img alt="Twitter: ryanchenkie" src="https://img.shields.io/twitter/follow/Zed_Developer.svg?style=social" />
   </a>
 </p>
 

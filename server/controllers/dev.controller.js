@@ -15,5 +15,5 @@ exports.getConfig   = async (req,res,next) => {
 // GET APP VERSION ([GET] ../dev/version)
 exports.getVersion  = async (req,res,next) => {
     console.log('getVersion: [GET] /dev/version')
-    res.status(200).json({'npsd backend': packageJSON.version})
+    res.status(200).json({'shonkli backend': packageJSON.version})
 }

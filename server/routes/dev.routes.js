@@ -6,7 +6,7 @@ const controller   = require('../controllers/dev.controller')
 
 devRouter.get('/test', controller.getTest)
 
-devRouter.get('/config', controll.getConfig)
+devRouter.get('/config', controller.getConfig)
 
 devRouter.get('/version', controller.getVersion)
 

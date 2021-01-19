@@ -1,5 +1,4 @@
 const packageJSON   = require('../../package.json')
-const sequelize     = require('../util/database')
 
 // check a test route ([GET] ../dev/test)
 exports.getTest = async (req,res,next) => {

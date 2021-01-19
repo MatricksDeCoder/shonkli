@@ -2,22 +2,22 @@ const express      = require('express')
 const usersRouter  = express.Router()
 
 // import the controller 
-const controller   = require('../controllers/user.controller')
+const controller   = require('../controllers/users.controller')
 
 usersRouter.get('/', controller.getAllUsers)
 
-usersRouter.get('/:id', controller.getOne)
+usersRouter.get('/:id', controller.getOneUser)
 
-usersRouter.put('/:id', controller.updateOne)
+usersRouter.put('/:id', controller.updateOneUser)
 
-usersRouter.delete('/:id', controller.deleteOne)
+usersRouter.delete('/:id', controller.deleteOneUser)
 
 usersRouter.get('/role', controller.getUserRole)
 
 usersRouter.patch('/role', controller.patchUserRole)
 
-usersRouter.get('/bio', controller.getBio)
+usersRouter.get('/bio', controller.getBioUser)
 
-usersRouter.patch('/bio',controller.patchBio)
+usersRouter.patch('/bio',controller.patchBioUser)
 
-module.exports = infoRouter
+module.exports = usersRouter

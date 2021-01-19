@@ -56,8 +56,8 @@ exports.updateOneUser = async (req,res,next) => {
 }
 
 // DELETE ONE USER => ([DELETE] ../users/:id)
-exports.deleteOne = async (req,res, next) => {
-  console.log('deleteOne: [DELETE] /users/:id')
+exports.deleteOneUser = async (req,res, next) => {
+  console.log('deleteOneUser: [DELETE] /users/:id')
   try {
       const deleted = Users.destroy({where:{id:req.params.id}})
       console.log('OK deleteOne USER: ', );
@@ -69,8 +69,8 @@ exports.deleteOne = async (req,res, next) => {
 }
 
 // GET A USERS BIO => ([GET] ../users/bio)
-exports.getBio = async (req,res,next) => {
-    console.log('getBio: [GET] /users/bio')
+exports.getBioUser = async (req,res,next) => {
+    console.log('getBioUser: [GET] /users/bio')
     try {
         const { sub } = req.user;
         const user = await User.findOne({
@@ -90,8 +90,8 @@ exports.getBio = async (req,res,next) => {
 }
   
 // CHANGE A USERS BIO => ([PATCH] ../users/bio)
-exports.patchBio = async (req,res,next) => {
-    console.log('patchBio: [PATCH] /users/bio')
+exports.patchBioUser = async (req,res,next) => {
+    console.log('patchBioUser: [PATCH] /users/bio')
     try {
         const { sub } = req.user;
         const { bio } = req.body;
@@ -120,8 +120,8 @@ exports.patchBio = async (req,res,next) => {
 } 
 
 // GET A USERS ROLE => ([GET] ../users/role)
-exports.patchUserRole =  async (req, res) => {
-  console.log('patchUserRole: [PATCH] /users/role')
+exports.getUserRole =  async (req, res) => {
+  console.log('getUserRole: [GET] /users/role')
   try {
     const { role } = req.body;
     const allowedRoles = ['user', 'admin'];
@@ -146,7 +146,7 @@ exports.patchUserRole =  async (req, res) => {
 
 // CHANGE A USERS ROLE => ([PATCH] ../users/role)
 exports.patchUserRole = async (req, res) => {
-    console.log('patchUserRole: [PATCH] /users/bio')
+    console.log('patchUserRole: [PATCH] /users/role')
     try {
       const { role } = req.body;
       const allowedRoles = ['user', 'admin'];

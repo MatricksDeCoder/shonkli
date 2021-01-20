@@ -4,13 +4,13 @@ const UserModel   = require('../models/user.model')
 exports.getAllUsers = async (req,res,next) => {
   console.log('getAllUsers: [GET] /users')
     try {
-        const users = await User.find()
+        const users = await UserModel.find()
           .lean()
-          .select('_id firstName lastName avatar bio twitterName');
+          .select('_id firstName lastName bio twitterName');
     
         res.json({
           users
-        });
+        })
       } catch (err) {
         return res.status(400).json({
           message: 'There was a problem getting the users'
@@ -18,12 +18,12 @@ exports.getAllUsers = async (req,res,next) => {
       }
 }
 
-// GET ONE USER BY ID => [GET] ../users/:id
+// GET ONE USER BY ID => [GET] ../users/:id 
 exports.getOneUser = async (req,res,next) => {
   console.log('getOneUser: [GET] /users/:id')
   try {
-      const one = Users.findByPk(req.params.id)
-      console.log("OK getOne USER: ", one.dataValues)
+      const one = await UserModel.findById(req.params.id)
+      console.log("OK getOne USER: ", one)
       return res.status(200).json(one)
   } catch(error) {
       console.log('ERROR in getOne ' + "USER: ", error)
@@ -31,38 +31,16 @@ exports.getOneUser = async (req,res,next) => {
   }
 }
 
-// UPDATE ONE USER BY ID => [PUT] ../users/:id
-exports.updateOneUser = async (req,res,next) => {
-  console.log('updateOneUser: [UPDATE] /users/:id')
-  try {
-      const USER_MODEL = {
-          username : req.body.username,
-          email: req.body.email,
-          password: req.body.password,
-          role: req.body.role
-      }
-      try {
-          const updated = Users.update(USER_MODEL, {where: { id : req.params.ide}})
-          console.log('OK updateOne USER: ', updated)
-          return res.status(200).json(updated)
-      } catch(error) {
-          console.log('ERROR in updateOne ' + "USER:", error);
-          return res.status(500).json(error);
-      }
-  } catch(error) {
-      console.log('ERROR in reqeust')
-      return res.status(e00).json('BAD REQUEST');
-  }
-}
-
 // DELETE ONE USER => ([DELETE] ../users/:id)
 exports.deleteOneUser = async (req,res, next) => {
   console.log('deleteOneUser: [DELETE] /users/:id')
   try {
-      const deleted = Users.destroy({where:{id:req.params.id}})
+      console.log("TRYING TO DELETE!!!!")
+      const deleted = await UserModel.remove({_id:req.params.id})
       console.log('OK deleteOne USER: ', );
-      return res.status(200).json(u);
+      return res.status(200).json(deleted);
   } catch(error) {
+    
       console.log('ERROR in deleteOne ' + 'USER:', error);
       return res.status(500).json(error);
   }

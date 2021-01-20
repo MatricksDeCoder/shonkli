@@ -2,6 +2,15 @@ const jwt              = require('jsonwebtoken')
 const bcrypt           = require('bcryptjs')
 
 
+// Point scoring system
+const pointsEarned = {
+    signup: 10,
+    login : 2,
+    shareURL: 5,
+    createURL : 4
+}
+
+
 // create JSON web token
 // recommended to use long random secret stored in env as JWT_SECERT
 // e.g generate using https://www.grc.com/passwords.htm
@@ -12,7 +21,7 @@ const createToken      = user => {
     //data with user info
     const payload      = {
         sub: user._id,
-        emaill: user.email,
+        email: user.email,
         role: user.role,
         issuer: 'api.shonkli',
         aud : 'api.shonkli'
@@ -51,11 +60,12 @@ const hashPassword       = plainTextPassword => {
 }
 
 // very password using bcrypt library
-const verifyPassword     = (plainTextPassword, hashedPassword) => bcrypt.compate(plainTextPassword, hashedPassword)
+const verifyPassword     = (plainTextPassword, hashedPassword) => bcrypt.compare(plainTextPassword, hashedPassword)
 
 module.exports = {
     createToken,
     hashPassword,
-    verifyPassword
+    verifyPassword,
+    pointsEarned
 }
   

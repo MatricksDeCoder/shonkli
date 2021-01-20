@@ -24,7 +24,7 @@ const requireAuth        = jwt({
 
 // attach user to req on way to route processing
 const attachUser = (req, res, next) => {
-    const token = req.headers.authorization;
+    const token = req.headers.authorization
     if (!token) {
       return res
         .status(401)

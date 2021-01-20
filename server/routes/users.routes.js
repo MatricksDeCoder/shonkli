@@ -8,8 +8,6 @@ usersRouter.get('/', controller.getAllUsers)
 
 usersRouter.get('/:id', controller.getOneUser)
 
-usersRouter.put('/:id', controller.updateOneUser)
-
 usersRouter.delete('/:id', controller.deleteOneUser)
 
 usersRouter.get('/role', controller.getUserRole)

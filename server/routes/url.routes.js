@@ -10,4 +10,7 @@ urlRouter.get('/:slug', controller.getUrl)
 // create a custom slug 
 urlRouter.post('/', controller.postUrl)
 
+// get all the urls in db
+urlRouter.get('/', controller.getAllUrls)
+
 module.exports = urlRouter

@@ -26,16 +26,18 @@ const UserModel = mongoose.model('User',
         },
         role: { 
             type: String, 
-            required: true, 
+            required: false, 
             default: 'user' 
         },
         twitterName: { 
             type: String, 
-            required: false 
+            required: false,
+            default: 'Zed_Developer'
         },
         bio: {
             type: String,
-            required: false
+            required: false,
+            default:'I love shonkli'
         },
         created: {
             type: Date,
@@ -45,7 +47,16 @@ const UserModel = mongoose.model('User',
             type: Number,
             default: 0
         },
-        updated: Date,
+        updated: {
+            type: Date,
+            required:false,
+            default: Date.now()
+        },
+        points : {
+            type: Number,
+            default: 0,
+            required: false
+        }
     })
 );
 

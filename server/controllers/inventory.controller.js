@@ -1,4 +1,4 @@
-const UserModel   = require('../models/user.model')
+const InventoryItem   = require('../models/inventory.model')
 
 // GET ALL INVENTORY => ([GET] ../inventory)
 exports.getAllInventory = async (req,res,next) => {

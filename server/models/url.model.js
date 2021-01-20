@@ -28,7 +28,7 @@ const UrlModel = mongoose.model('Url',
                 type: Date,
                 default: Date.now(),
             },
-            visists : {
+            visits : {
                 type: Number,
                 default: 0
             }

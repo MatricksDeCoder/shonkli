@@ -126,7 +126,8 @@ exports.getUserRole =  async (req, res) => {
 exports.patchUserRole = async (req, res) => {
     console.log('patchUserRole: [PATCH] /users/role')
     try {
-      const { role } = req.body;
+      const { role } = req.body
+      console.log("ROLE : ", role)
       const allowedRoles = ['user', 'admin'];
   
       if (!allowedRoles.includes(role)) {
@@ -134,7 +135,7 @@ exports.patchUserRole = async (req, res) => {
           .status(400)
           .json({ message: 'Role not allowed' });
       }
-      await User.findOneAndUpdate(
+      await UserModel.findOneAndUpdate(
         { _id: req.user.sub },
         { role }
       );

@@ -29,7 +29,7 @@ const createToken      = user => {
 
     const options       = {
         algorithm: 'HS256',
-        expiresIn: '1h'
+        expiresIn: '8h'
     }
 
     return jwt.sign(

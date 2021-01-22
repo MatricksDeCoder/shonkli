@@ -6,7 +6,7 @@ exports.getAllUsers = async (req,res,next) => {
     try {
         const users = await UserModel.find()
           .lean()
-          .select('_id firstName lastName bio twitterName');
+          .select('_id firstName lastName email bio created twitterName bio urlsCount points role');
     
         res.json({
           users

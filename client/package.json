@@ -23,7 +23,10 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
     "web-vitals": "^0.2.4",
-    "yup": "^0.29.3"
+    "yup": "^0.29.3",
+    "autoprefixer": "^9.7.6",
+    "postcss-cli": "^7.1.1",
+    "tailwindcss": "^1.4.6"
   },
   "scripts": {
     "start": "react-scripts start",
